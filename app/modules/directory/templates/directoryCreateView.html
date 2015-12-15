@@ -1,0 +1,67 @@
+
+<div class="container">
+    <form name = "customerForm" novalidate>
+        <h2>New Customer</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <label for = "subscriberid">Subscriber Id</label>
+                <input type = "text" name="subscriberid" ng-model="subscriberid" class = "form-control" placeholder = "Subscriber Id" id="subscriberid" required ng-pattern="/^[0-9]{2,20}$/">
+                <span style = "color:red" ng-show = "customerForm.subscriberid.$dirty && customerForm.subscriberid.$invalid">
+                    <span ng-show = "customerForm.subscriberid.$error.required">Subscriber id is required.</span>
+                 </span>
+            </div>
+            <div class="col-md-6">
+                <label for = "service">Account Type</label>
+                <select class = "form-control" ng-model="service" name="service" id="service" required>
+                    <option value="landline" selected>Landline</option>
+                    <option value="broadband">Broadband</option>
+                    <option value="sim">Sim</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for = "phonenumber">Phone Number</label>
+                <input type = "text" name="phonenumber" ng-model="phonenumber" class = "form-control" placeholder = "Phone Number" id="phonenumber" required>
+                <span style = "color:red" ng-show = "customerForm.phonenumber.$dirty && customerForm.phonenumber.$invalid">
+                    <span ng-show = "customerForm.phonenumber.$error.required">Phone number is required.</span>
+                 </span>
+            </div>
+            <div class="col-md-6">
+                <label for = "releaseDate">Date</label>
+                <input type = "text" name="releaseDate" ng-model="releaseDate" class = "form-control" placeholder = "format(yyyy-mm-dd)" id="releaseDate" required>
+                <span style = "color:red" ng-show = "customerForm.releaseDate.$dirty && customerForm.releaseDate.$invalid">
+                    <span ng-show = "customerForm.releaseDate.$error.required">Date is required.</span>
+                 </span>
+            </div>
+            <div class="col-md-6">
+                <label for = "name">Name</label>
+                <input type = "text" name="name" ng-model="name" class = "form-control" placeholder = "Full Name" id="name" required>
+                <span style = "color:red" ng-show = "customerForm.name.$dirty && customerForm.name.$invalid">
+                    <span ng-show = "customerForm.name.$error.required">Customer name is required.</span>
+                 </span>
+            </div>
+            <div class="col-md-6">
+                <label for = "email">Email Id</label>
+                <input type = "text" name="name" ng-model="email" class = "form-control" placeholder = "Email Id" id="email" required>
+                <span style = "color:red" ng-show = "studentForm.email.$dirty && studentForm.email.$invalid">
+                    <span ng-show = "studentForm.email.$error.required">Email is required.</span>
+                    <span ng-show = "studentForm.email.$error.email">Invalid email address.</span>
+                 </span>
+            </div>
+            <div class="col-xs-6">
+                <label for = "dob">Date Of Birth</label>
+                <input type = "text" name="dob" ng-model="dob" class = "form-control" placeholder = "format(yyyy-mm-dd)" id="dob" required>
+                <span style = "color:red" ng-show = "customerForm.dob.$dirty && customerForm.dob.$invalid">
+                    <span ng-show = "customerForm.dob.$error.required">Date of birth is required.</span>
+                 </span>
+            </div>
+            <div class="col-xs-6">
+                <div class="pull-right"><button type="submit" class="btn btn-primary" ng-disabled = "studentForm.firstname.$dirty &&
+                    studentForm.firstname.$invalid || studentForm.lastname.$dirty &&
+                    studentForm.lastname.$invalid || studentForm.email.$dirty &&
+                    studentForm.email.$invalid" ng-click="submit()">Save</button></div>
+                <div class="pull-right"><span class="btn" ng-click = "reset()">Reset</span></div>
+            </div>
+        </div>
+    </form>
+</div>
+

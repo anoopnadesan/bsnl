@@ -1,0 +1,32 @@
+
+<div class="container">
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-sm-12">
+            Sort By :
+            <select class="input-small" ng-model="sortby">
+                <option value="person.name" selected>Name</option>
+                <option value="phonenumber">Phone number</option>
+                <option value="subscriberid">Subscriber Id</option>
+                <option value="person.email">Email</option>
+            </select>
+            Service Type :
+            <select ng-model="query.service">
+                <option value="">Select</option>
+                <option value="landline">Landline</option>
+                <option value="broadband">Broadband</option>
+                <option value="sim">Sim</option>
+            </select>
+        </div>
+    </div>
+    <div class = "col-sm-6 col-md-4 col-lg-2 panel panel-primary" ng-repeat="dir in directories | orderBy:sortby | filter:query" style="margin-right:2px;">
+        <div class = "panel-heading"><h3 class = "panel-title">{{dir.person.name}}</h3></div>
+        <table class = "table">
+            <tr><td><u>Subscriber ID</u><br>{{dir.subscriberid}}</td></tr>
+            <tr><td><u>Service Type</u><br>{{dir.service}}</td></tr>
+            <tr><td><u>Connection Date</u><br>{{dir.releaseDate | date:'mediumDate'}}</td></tr>
+            <tr><td><u>Phone Number</u><br>{{dir.phonenumber}}</td></tr>
+            <tr><td><u>Email</u><br>{{dir.person.email}}</td></tr>
+            <tr><td><u>Date Of Birth</u><br>{{dir.person.dob | date:'mediumDate'}}</td></tr>
+        </table>
+    </div>
+</div>
