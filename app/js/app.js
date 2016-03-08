@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('Authentication', []);
-var directoryApp = angular.module('directoryApp', ['Authentication','ngRoute','ngCookies'])
+var directoryApp = angular.module('directoryApp', ['base64', 'Authentication','ngRoute','ngCookies'])
 
 .config(function($routeProvider, $locationProvider) {
     $routeProvider.

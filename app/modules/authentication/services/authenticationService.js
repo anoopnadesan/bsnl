@@ -3,8 +3,8 @@
 angular.module('Authentication')
  
 .factory('AuthenticationService',
-    ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout',
-    function (Base64, $http, $cookieStore, $rootScope, $timeout) {
+    ['$base64', '$http', '$cookieStore', '$rootScope', '$timeout',
+    function ($base64, $http, $cookieStore, $rootScope, $timeout) {
         var service = {};
 
         service.Login = function (username, password, callback) {
@@ -18,7 +18,7 @@ angular.module('Authentication')
         };
  
         service.SetCredentials = function (username, password) {
-            var authdata = Base64.encode(username + ':' + password);
+            var authdata = $base64.encode(username + ':' + password);
             $rootScope.admin = {
                 userData: {
                     username: username,
