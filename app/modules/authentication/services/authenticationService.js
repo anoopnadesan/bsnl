@@ -1,8 +1,6 @@
 'use strict';
  
-angular.module('Authentication')
- 
-.factory('AuthenticationService',
+ angular.module('Authentication', []).factory('AuthenticationService',
     ['$base64', '$http', '$cookieStore', '$rootScope', '$timeout',
     function ($base64, $http, $cookieStore, $rootScope, $timeout) {
         var service = {};

@@ -1,12 +1,12 @@
 'use strict';
 
-angular.module('Authentication', []);
-var directoryApp = angular.module('directoryApp', ['base64', 'Authentication','ngRoute','ngCookies'])
+var directoryApp = angular.module('directoryApp', ['base64','ngRoute','ngCookies', 'Authentication'])
 
 .config(function($routeProvider, $locationProvider) {
     $routeProvider.
     when('/login', {
         controller: 'LoginController',
+        controllerAs: 'LoginCtrl',
         templateUrl: 'app/modules/authentication/templates/loginView.html'
     }).
     when('/dirlist', {
