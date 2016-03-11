@@ -6,7 +6,7 @@ var directoryApp = angular.module('directoryApp', ['base64','ngRoute','ngCookies
     $routeProvider.
     when('/login', {
         controller: 'LoginController',
-        controllerAs: 'LoginCtrl',
+        controllerAs: 'login',
         templateUrl: 'app/modules/authentication/templates/loginView.html'
     }).
     when('/dirlist', {

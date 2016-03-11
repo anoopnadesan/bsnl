@@ -2,7 +2,7 @@
 
 function LoginCtrl ($rootScope, $location, AuthenticationService) {   
     $rootScope.dataLoaded = true;
-    
+
     // reset login status
     AuthenticationService.ClearCredentials();
 
@@ -26,5 +26,4 @@ function LoginCtrl ($rootScope, $location, AuthenticationService) {
 }
 
 angular.module('Authentication') 
-.controller('LoginController',
-['$rootScope', '$location', 'AuthenticationService', LoginCtrl]);
+.controller('LoginController', ['$rootScope', '$location', 'AuthenticationService', LoginCtrl]);

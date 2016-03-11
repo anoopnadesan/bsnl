@@ -1,35 +1,37 @@
 'use strict';
- 
- angular.module('Authentication', []).factory('AuthenticationService',
-    ['$base64', '$http', '$cookieStore', '$rootScope', '$timeout',
-    function ($base64, $http, $cookieStore, $rootScope, $timeout) {
-        var service = {};
 
-        service.Login = function (username, password, callback) {
-            $timeout(function(){
-                var response = { success: username === 'demo' && password === 'demo' };
-                if(!response.success) {
-                    response.message = 'Username or password is incorrect';
-                }
-                callback(response);
-            }, 1000);
+function AuthenticationService ($base64, $http, $cookieStore, $rootScope, $timeout) {
+
+    this.Login = function (username, password, callback) {
+        $timeout(function(){
+            var _response = { success: username === 'demo' && password === 'demo' };
+            if(!_response.success) {
+                _response.message = 'Username or password is incorrect';
+            }
+            callback(_response);
+        }, 1000);
+    };
+
+    this.SetCredentials = function (username, password) {
+        var _authdata = $base64.encode(username + ':' + password);
+
+        $rootScope.admin = {
+            userData: {
+                username: username,
+                authdata: _authdata
+            }
         };
+        
+        $cookieStore.put('admin', $rootScope.admin);
+    };
+
+    this.ClearCredentials = function () {
+        $rootScope.admin = {};
+        $cookieStore.remove('admin');
+    }; 
+
+    return this;   
+}
  
-        service.SetCredentials = function (username, password) {
-            var authdata = $base64.encode(username + ':' + password);
-            $rootScope.admin = {
-                userData: {
-                    username: username,
-                    authdata: authdata
-                }
-            };
-            $cookieStore.put('admin', $rootScope.admin);
-        };
- 
-        service.ClearCredentials = function () {
-            $rootScope.admin = {};
-            $cookieStore.remove('admin');
-        };
- 
-        return service;
-    }]);
+ angular.module('Authentication', [])
+ .factory('AuthenticationService', ['$base64', '$http', '$cookieStore', '$rootScope', '$timeout', AuthenticationService]);
