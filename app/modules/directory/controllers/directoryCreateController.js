@@ -1,20 +1,36 @@
 'use strict';
 
-directoryApp.controller('DirNewController',
-    function DirNewController($scope,$rootScope,$timeout,dirList) {
-        $rootScope.currentMenuItem = 'adddir';
-        $rootScope.dataLoaded = false;
-        $scope.service = 'service';
-        $scope.reset = function(){
-            $scope.service = 'service';
-            $scope.firstName = "Anoop";
-            $scope.lastName = "Nadesan";
-            $scope.email = "anoopn.kollam@gmail.com";
-        }
-        $scope.callAtTimeout = function() {
-            $scope.reset();
-            $rootScope.dataLoaded = true;
-        }
-        $timeout( function(){ $scope.callAtTimeout(); }, 1000);
-    }
-);
+function DirNewController($rootScope, $timeout, dirList) {
+    var _self = this;
+    
+    $rootScope.currentMenuItem = 'adddir';
+    $rootScope.dataLoaded = false;
+    
+    this.service = 'service';
+
+    this.submit = function () {
+        console.log(this.subscriberid + '\n' +
+                    this.service + '\n' +
+                    this.phonenumber + '\n' +
+                    this.releaseDate + '\n' +
+                    this.name + '\n' +
+                    this.email + '\n' +
+                    this.dob);
+    };
+
+    this.reset = function(){
+        this.service = 'service';
+        this.firstName = "Anoop";
+        this.lastName = "Nadesan";
+        this.email = "anoopn.kollam@gmail.com";
+    };
+
+    this.callAtTimeout = function() {
+        this.reset();
+        $rootScope.dataLoaded = true;
+    };
+
+    $timeout( function(){ _self.callAtTimeout(); }, 1000);
+}
+
+angular.module('Directory').controller('DirNewController', ['$rootScope', '$timeout', 'dirList', DirNewController]);
