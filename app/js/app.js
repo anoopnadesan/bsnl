@@ -1,6 +1,6 @@
 'use strict';
 
-var directoryApp = angular.module('directoryApp', ['base64','ngRoute','ngCookies', 'Authentication'])
+var directoryApp = angular.module('directoryApp', ['base64','ngRoute','ngCookies', 'Authentication', 'Directory'])
 
 .config(function($routeProvider, $locationProvider) {
     $routeProvider.
@@ -11,15 +11,18 @@ var directoryApp = angular.module('directoryApp', ['base64','ngRoute','ngCookies
     }).
     when('/dirlist', {
         controller: 'DirListController',
+        controllerAs: 'dirl',
         templateUrl: 'app/modules/directory/templates/directoryListView.html'
     }).
     when('/adddir', {
         controller: 'DirNewController',
+        controllerAs: 'dirc',
         templateUrl: 'app/modules/directory/templates/directoryCreateView.html'
     }).
     otherwise({
         redirectTo: '/dirlist'
     });
+
     // use the HTML5 History API
     $locationProvider.html5Mode(true);
 })

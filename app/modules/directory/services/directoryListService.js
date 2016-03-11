@@ -1,13 +1,11 @@
 'use strict';
 
-directoryApp.factory('dirList', function ($http,$q) {
-    return {
-        getDir: function (responseCall) {
-            $http.get("data/directory/directory.json").success(
-                function(data) {
-                    responseCall(data);
-                }
-            )
-        }
-    }
-});
+function DirList ($http) {
+
+	this.getDir = function (responseCall) {
+        return $http.get("data/directory/directory.json");
+    };
+
+    return this;
+}
+angular.module('Directory', []).factory('dirList', ['$http', DirList]);
