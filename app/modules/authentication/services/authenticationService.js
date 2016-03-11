@@ -32,6 +32,6 @@ function AuthenticationService ($base64, $http, $cookieStore, $rootScope, $timeo
 
     return this;   
 }
- 
- angular.module('Authentication', [])
- .factory('AuthenticationService', ['$base64', '$http', '$cookieStore', '$rootScope', '$timeout', AuthenticationService]);
+
+angular.module('Authentication', [])
+.factory('AuthenticationService', ['$base64', '$http', '$cookieStore', '$rootScope', '$timeout', AuthenticationService]);
