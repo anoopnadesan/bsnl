@@ -1,5 +1,5 @@
 {
-  "name": "bsnl-ooops-implementation",
+  "name": "bsnl-component-implementation",
   "version": "1.0.0",
   "dependencies": {
     "angular-base64": "~2.0.5"

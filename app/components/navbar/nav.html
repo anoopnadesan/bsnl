@@ -1,0 +1,18 @@
+<nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="javascript:void(0);">BSNL Directory</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="nav navbar-nav" ng-show="admin.userData">
+            <li ng-class="((currentMenuItem=='dirlist') ? 'active' : '')"><a href="/dirlist">Directory List</a></li>
+            <li ng-class="((currentMenuItem=='adddir') ? 'active' : '')"><a href="/adddir">Add Directory</a></li>
+            <li><a href="/login">Logout</a></li>
+        </ul>
+    </div>
+</nav>
