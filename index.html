@@ -6,8 +6,8 @@
     <base href="/">
     <title>BSNL Angular 1.5 App</title>
     <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="assets/app.css">
 </head>
 <body>
@@ -47,19 +47,18 @@
     </div>
 </div>
 
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="bower_components/angular/angular.min.js"></script>
-<script src="bower_components/angular-base64/angular-base64.min.js"></script>
-<script src="bower_components/angular-route/angular-route.min.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/jquery-ui/jquery-ui.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="node_modules/angular-base64/angular-base64.min.js"></script>
+<script src="node_modules/angular-cookies/angular-cookies.min.js"></script>
 
-<script src="app/js/app.js"></script>
-<script src="app/modules/authentication/services/authenticationService.js"></script>
-<script src="app/modules/directory/services/directoryListService.js"></script>
-<script src="app/modules/authentication/controllers/loginController.js"></script>
-<script src="app/modules/directory/controllers/directoryCreateController.js"></script>
-<script src="app/modules/directory/controllers/directoryListController.js"></script>
+<script src="src/components/app/app.js"></script>
+<script src="src/components/login/authenticationService.js"></script>
+<script src="src/components/directory/directoryListService.js"></script>
+<script src="src/components/login/loginController.js"></script>
+<script src="src/components/directory/directoryCreateController.js"></script>
+<script src="src/components/directory/directoryListController.js"></script>
 </body>
 </html>

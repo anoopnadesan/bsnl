@@ -1,0 +1,20 @@
+{
+  "name": "bsnl-angular-1.5-component-router",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "description": "BSNL - Angular 1.x implementation of Component Router",
+  "dependencies": {
+    "@angular/router": "*",
+    "angular": "1.5.0"
+  },
+  "devDependencies": {
+    "angular-base64": "^2.0.5",
+    "angular-cookies": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.1",
+    "jquery-ui": "^1.10.5",
+    "lite-server": "^2.0.1"
+  }
+}
