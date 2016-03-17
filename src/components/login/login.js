@@ -1,6 +1,6 @@
 'use strict';
 
-function LoginCtrl ($rootScope, $location, AuthenticationService) {
+function LoginCtrl ($rootScope, $rootRouter, AuthenticationService) {
     $rootScope.dataLoaded = true;
 
     // reset login status
@@ -16,7 +16,8 @@ function LoginCtrl ($rootScope, $location, AuthenticationService) {
         AuthenticationService.Login(_userName, _password, function(response) {
             if(response.success) {
                 AuthenticationService.SetCredentials(_userName, _password);
-                $location.path('/dirlist');
+                //$location.path('/dirlist');
+                $rootRouter.navigate(['/dirlist']);
             } else {
                 _self.error = response.message;
                 _self.signingOn = false;
@@ -31,6 +32,6 @@ function LoginCtrl ($rootScope, $location, AuthenticationService) {
 angular.module('Authentication', ['Authentication.Service'])
 .component('login', {
     templateUrl: '/src/components/login/login.html',
-    controller: ['$rootScope', '$location', 'AuthenticationService', LoginCtrl],
+    controller: ['$rootScope', '$rootRouter', 'AuthenticationService', LoginCtrl],
     controllerAs: 'login'
 });
