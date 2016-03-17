@@ -1,40 +1,12 @@
 'use strict';
 
-var directoryApp = angular.module('directoryApp', ['base64','ngRoute','ngCookies', 'Authentication', 'Directory'])
-
-.config(function($routeProvider, $locationProvider) {
-    $routeProvider.
-    when('/login', {
-        controller: 'LoginController',
-        controllerAs: 'login',
-        templateUrl: 'src/modules/authentication/templates/loginView.html'
-    }).
-    when('/dirlist', {
-        controller: 'DirListController',
-        controllerAs: 'dirl',
-        templateUrl: 'src/modules/directory/templates/directoryListView.html'
-    }).
-    when('/adddir', {
-        controller: 'DirNewController',
-        controllerAs: 'dirc',
-        templateUrl: 'src/modules/directory/templates/directoryCreateView.html'
-    }).
-    otherwise({
-        redirectTo: '/dirlist'
-    });
-
-    // use the HTML5 History API
+angular.module('app', ['ngComponentRouter', 'base64', 'ngCookies', 'Authentication', 'Directory', 'Navigation'])
+.config(function($locationProvider) {
     $locationProvider.html5Mode(true);
 })
 
-.run(['$rootScope', '$location', '$cookieStore', '$http', function ($rootScope, $location, $cookieStore, $http) {
-    // keep user logged in after page refresh
-    $rootScope.admin = $cookieStore.get('admin') || {};
+.value('$routerRootComponent', 'app')
 
-    $rootScope.$on('$locationChangeStart', function (event, next, current) {
-        // redirect to login page if not logged in
-        if ($location.path() !== '/login' && !$rootScope.admin.userData) {
-            $location.path('/login');
-        }
-    });
-}]);
+.component('app', {
+        templateUrl: 'src/components/app/app.html'
+});

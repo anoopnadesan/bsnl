@@ -1,6 +1,6 @@
 'use strict';
 
-function LoginCtrl ($rootScope, $location, AuthenticationService) {   
+function LoginCtrl ($rootScope, $location, AuthenticationService) {
     $rootScope.dataLoaded = true;
 
     // reset login status
@@ -25,5 +25,12 @@ function LoginCtrl ($rootScope, $location, AuthenticationService) {
     };
 }
 
-angular.module('Authentication') 
-.controller('LoginController', ['$rootScope', '$location', 'AuthenticationService', LoginCtrl]);
+/*angular.module('Authentication')
+.controller('LoginController', ['$rootScope', '$location', 'AuthenticationService', LoginCtrl]);*/
+
+angular.module('Authentication', ['Authentication.Service'])
+.component('login', {
+    templateUrl: '/src/components/login/login.html',
+    controller: ['$rootScope', '$location', 'AuthenticationService', LoginCtrl],
+    controllerAs: 'login'
+});

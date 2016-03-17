@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="directoryApp">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,51 +11,14 @@
     <link rel="stylesheet" href="assets/app.css">
 </head>
 <body>
-
-<div class="container">
-    <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="javascript:void(0);">BSNL Directory</a>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="nav navbar-nav" ng-show="admin.userData">
-                <li ng-class="((currentMenuItem=='dirlist') ? 'active' : '')"><a href="/dirlist">Directory List</a></li>
-                <li ng-class="((currentMenuItem=='adddir') ? 'active' : '')"><a href="/adddir">Add Directory</a></li>
-                <li><a href="/login">Logout</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
-
-    <div class="jumbotron">
-        <p>BSNL Directory using Angular Js - Responsive design with HTML5, CSS3 and Bootstrap3.</p>
-    </div>
-
-    <div ng-hide="dataLoaded" class="preloader"></div>
-    <ng-view ng-show="dataLoaded"></ng-view>
-
-    <div class="navbar navbar-fixed-bottom navbar-me">
-        <div class="container">
-            <p class="navbar-text">©Copyright 2016</p>
-        </div>
-    </div>
-</div>
-
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script src="node_modules/jquery-ui/jquery-ui.js"></script>
-<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="node_modules/angular/angular.min.js"></script>
-<script src="node_modules/angular-base64/angular-base64.min.js"></script>
-<script src="node_modules/angular-cookies/angular-cookies.min.js"></script>
-
+<app></app>
+<script src="/node_modules/angular/angular.js"></script>
+<script src="/node_modules/@angular/router/angular1/angular_1_router.js"></script>
+<script src="/node_modules/angular-base64/angular-base64.min.js"></script>
+<script src="/node_modules/angular-cookies/angular-cookies.min.js"></script>
 <script src="src/components/app/app.js"></script>
-<script src="src/components/login/authenticationService.js"></script>
+<script src="src/components/navbar/nav.js"></script>
+<script src="src/components/login/authentication.js"></script>
 <script src="src/components/directory/directoryListService.js"></script>
 <script src="src/components/login/loginController.js"></script>
 <script src="src/components/directory/directoryCreateController.js"></script>

@@ -28,10 +28,8 @@ function AuthenticationService ($base64, $http, $cookieStore, $rootScope, $timeo
     this.ClearCredentials = function () {
         $rootScope.admin = {};
         $cookieStore.remove('admin');
-    }; 
-
-    return this;   
+    };
 }
 
-angular.module('Authentication', [])
-.factory('AuthenticationService', ['$base64', '$http', '$cookieStore', '$rootScope', '$timeout', AuthenticationService]);
+angular.module('Authentication.Service', [])
+.service('AuthenticationService', ['$base64', '$http', '$cookieStore', '$rootScope', '$timeout', AuthenticationService]);
